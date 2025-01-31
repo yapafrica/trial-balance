@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Your Knowledge - The Trial Balance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+            text-align: left;
+        }
+        #quiz-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        #quiz-container h2 {
+            margin-bottom: 20px;
+        }
+        .question {
+            margin: 15px 0;
+            display: none;
+        }
+        .question input {
+            margin-right: 10px;
+        }
+        #result {
+            margin-top: 20px;
+            display: none;
+        }
+        #result p {
+            font-size: 18px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            #quiz-container {
+                width: 100%;
+            }
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div id="quiz-container">
+    <h2>Test Your Knowledge - You have 10 questions!</h2>
+
+    <button id="startQuizBtn">Start Quiz</button>
+
+    <div id="questions">
+        <div class="question">
+            <p>What is the primary purpose of a trial balance?</p>
+            <label><input type="radio" name="q1" value="a"> To verify the accuracy of the ledger accounts</label><br>
+            <label><input type="radio" name="q1" value="b"> To calculate the profits</label><br>
+            <label><input type="radio" name="q1" value="c"> To prepare the financial statements</label><br>
+        </div>
+
+        <div class="question">
+            <p>Which of the following errors would not be revealed by a trial balance?</p>
+            <label><input type="radio" name="q2" value="a"> An error in casting the ledger</label><br>
+            <label><input type="radio" name="q2" value="b"> A transposition error</label><br>
+            <label><input type="radio" name="q2" value="c"> A double posting error</label><br>
+        </div>
+
+        <div class="question">
+            <p>What happens if the trial balance does not balance?</p>
+            <label><input type="radio" name="q3" value="a"> It indicates that the financial statements are incorrect</label><br>
+            <label><input type="radio" name="q3" value="b"> It shows that there is an error in the accounting system</label><br>
+            <label><input type="radio" name="q3" value="c"> It means that there are unrecorded transactions</label><br>
+        </div>
+
+        <div class="question">
+            <p>Which accounts are included in a trial balance?</p>
+            <label><input type="radio" name="q4" value="a"> Only income and expense accounts</label><br>
+            <label><input type="radio" name="q4" value="b"> Both nominal and real accounts</label><br>
+            <label><input type="radio" name="q4" value="c"> Only personal accounts</label><br>
+        </div>
+
+        <div class="question">
+            <p>If a trial balance does not balance, which of the following should be done first?</p>
+            <label><input type="radio" name="q5" value="a"> Check for any omitted entries</label><br>
+            <label><input type="radio" name="q5" value="b"> Review all journal entries</label><br>
+            <label><input type="radio" name="q5" value="c"> Verify the arithmetic of all ledger balances</label><br>
+        </div>
+
+        <div class="question">
+            <p>Which is NOT a reason for a trial balance to be unequal?</p>
+            <label><input type="radio" name="q6" value="a"> Omission of a transaction</label><br>
+            <label><input type="radio" name="q6" value="b"> Posting an entry to the wrong account</label><br>
+            <label><input type="radio" name="q6" value="c"> All entries being correctly posted</label><br>
+        </div>
+
+        <div class="question">
+            <p>Which of these is most likely to cause an imbalance in the trial balance?</p>
+            <label><input type="radio" name="q7" value="a"> Transposition errors</label><br>
+            <label><input type="radio" name="q7" value="b"> Correctly recording each transaction</label><br>
+            <label><input type="radio" name="q7" value="c"> Both debit and credit entries of equal value</label><br>
+        </div>
+
+        <div class="question">
+            <p>What is the ideal outcome when a trial balance is completed?</p>
+            <label><input type="radio" name="q8" value="a"> The debit and credit columns must be equal</label><br>
+            <label><input type="radio" name="q8" value="b"> The total assets must equal the total liabilities</label><br>
+            <label><input type="radio" name="q8" value="c"> The account balances must be in alphabetical order</label><br>
+        </div>
+
+        <div class="question">
+            <p>What is the first step in preparing a trial balance?</p>
+            <label><input type="radio" name="q9" value="a"> Add up all the debits and credits in the ledgers</label><br>
+            <label><input type="radio" name="q9" value="b"> Balance the general ledger accounts</label><br>
+            <label><input type="radio" name="q9" value="c"> Identify the correct journal entries</label><br>
+        </div>
+
+        <div class="question">
+            <p>Which of the following is TRUE about the trial balance?</p>
+            <label><input type="radio" name="q10" value="a"> It helps detect errors in the financial statements</label><br>
+            <label><input type="radio" name="q10" value="b"> It is prepared at the end of the accounting period</label><br>
+            <label><input type="radio" name="q10" value="c"> It is only used for internal financial reporting</label><br>
+        </div>
+
+        <button id="submitBtn" style="display:none;">Submit</button>
+        <button id="retakeQuizBtn" style="display:none;" onclick="retakeQuiz()">Retake Quiz</button>
+    </div>
+
+    <div id="result" style="display:none;">
+        <p id="score"></p>
+    </div>
+</div>
+
+<script>
+    const startQuizBtn = document.getElementById('startQuizBtn');
+    const submitBtn = document.getElementById('submitBtn');
+    const resultDiv = document.getElementById('result');
+    const scoreText = document.getElementById('score');
+    const questions = document.querySelectorAll('.question');
+    const retakeQuizBtn = document.getElementById('retakeQuizBtn');
+
+    const correctAnswers = {
+        q1: 'a',
+        q2: 'a',
+        q3: 'b',
+        q4: 'b',
+        q5: 'c',
+        q6: 'c',
+        q7: 'a',
+        q8: 'a',
+        q9: 'a',
+        q10: 'b'
+    };
+
+    let score = 0;
+
+    startQuizBtn.addEventListener('click', () => {
+        startQuizBtn.style.display = 'none';
+        questions.forEach(question => question.style.display = 'block');
+        submitBtn.style.display = 'inline-block';
+    });
+
+    submitBtn.addEventListener('click', () => {
+        score = 0;
+        questions.forEach(question => {
+            const selectedAnswer = question.querySelector('input:checked');
+            const questionName = question.querySelector('input').name;
+            if (selectedAnswer && selectedAnswer.value === correctAnswers[questionName]) {
+                score++;
+            }
+        });
+        scoreText.textContent = `You got ${score} out of 10`;
+        resultDiv.style.display = 'block';
+        submitBtn.style.display = 'none';
+        retakeQuizBtn.style.display = 'inline-block';
+    });
+
+    function retakeQuiz() {
+        questions.forEach(question => {
+            question.querySelector('input').checked = false;
+        });
+        resultDiv.style.display = 'none';
+        retakeQuizBtn.style.display = 'none';
+        startQuizBtn.style.display = 'inline-block';
+    }
+</script>
+
+</body>
+</html>
